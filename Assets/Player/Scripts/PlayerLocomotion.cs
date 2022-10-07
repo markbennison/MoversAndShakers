@@ -45,13 +45,26 @@ public class PlayerLocomotion : MonoBehaviour
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
-            //Todo Jumping/Crouching
+            if (Input.GetButton("Jump"))
+            {
+                moveDirection.y = jumpSpeed;
+            }
+          
+        }
+
+        if (Input.GetKey(KeyCode.C))
+        {
+            characterController.height = 1f;
+            characterController.center = new Vector3(0f, 0.5f, 0f);
+        }
+        else //if (Input.GetKeyUp(KeyCode.C))
+        {
+            characterController.height = 2f;
+            characterController.center = new Vector3(0f, 1f, 0f);
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
-
-
     }
 
     void RotateAndLook()
