@@ -166,6 +166,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6628009960720084610, guid: e9e27f75a07472445a8a8c468aecd488, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6628009960913245259, guid: e9e27f75a07472445a8a8c468aecd488, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6628009960978547587, guid: e9e27f75a07472445a8a8c468aecd488, type: 3}
       propertyPath: m_Name
       value: PlayerObject
@@ -522,12 +530,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e731728013158d4aa24b78950648d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  runSpeed: 9
+  jogSpeed: 6
   jumpSpeed: 10
   mouseSensitivity: 2
   gravity: 20
   lookUpClamp: -30
   lookDownClamp: 60
+--- !u!114 &974003779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974003774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a96286ebd34489046a28365487d8cf05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perspective: 1
 --- !u!1 &1173988119
 GameObject:
   m_ObjectHideFlags: 0

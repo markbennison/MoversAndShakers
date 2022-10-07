@@ -8,7 +8,10 @@ public class PlayerLocomotion : MonoBehaviour
     CharacterController characterController;
     Transform playerContainer, cameraContainer;
 
-    public float speed = 6.0f;
+    public float runSpeed = 9f;
+    public float jogSpeed = 6f;
+
+    float speed;
     public float jumpSpeed = 10f;
     public float mouseSensitivity = 2f;
     public float gravity = 20.0f;
@@ -29,16 +32,35 @@ public class PlayerLocomotion : MonoBehaviour
     {
         Locomotion();
         RotateAndLook();
+        PerspectiveCheck();
     }
 
     void SetCurrentCamera()
     {
-        playerContainer = gameObject.transform.Find("Container3P");
-        cameraContainer = playerContainer.transform.Find("Camera3PContainer");
+        SwitchPerspective switchPerspective = GetComponent<SwitchPerspective>();
+        if (switchPerspective.GetPerspective() == SwitchPerspective.Perspective.First)
+        {
+            playerContainer = gameObject.transform.Find("Container1P");
+            cameraContainer = playerContainer.transform.Find("Camera1PContainer");
+        }
+        else
+        {
+            playerContainer = gameObject.transform.Find("Container3P");
+            cameraContainer = playerContainer.transform.Find("Camera3PContainer");
+        }
     }
 
     void Locomotion()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+        }
+        else
+        {
+            speed = jogSpeed;
+        }
+
         if (characterController.isGrounded)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
@@ -49,7 +71,7 @@ public class PlayerLocomotion : MonoBehaviour
             {
                 moveDirection.y = jumpSpeed;
             }
-          
+
         }
 
         if (Input.GetKey(KeyCode.C))
@@ -78,4 +100,25 @@ public class PlayerLocomotion : MonoBehaviour
         cameraContainer.transform.localRotation = Quaternion.Euler(rotateY, 0f, 0f);
     }
 
+    void PerspectiveCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwitchPerspective switchPerspective = GetComponent<SwitchPerspective>();
+
+            if (switchPerspective != null)
+            {
+                if (switchPerspective.GetPerspective() == SwitchPerspective.Perspective.First)
+                {
+                    switchPerspective.SetPerspective(SwitchPerspective.Perspective.Third);
+                }
+                else
+                {
+                    switchPerspective.SetPerspective(SwitchPerspective.Perspective.First);
+                }
+
+                SetCurrentCamera();
+            }
+        }
+    }
 }
