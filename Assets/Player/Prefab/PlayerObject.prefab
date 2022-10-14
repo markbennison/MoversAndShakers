@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 7447590406350994350}
   - component: {fileID: 1995212303334756756}
   - component: {fileID: 8170905624493233110}
+  - component: {fileID: 5653369431715854725}
   m_Layer: 21
   m_Name: PlayerObject
   m_TagString: Player
@@ -481,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfa077cd9877714e85df2be4d858473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPoints: 100
 --- !u!114 &8170905624493233110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +495,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cb8aaa9e5754c41ab8f5c604a37923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rawDamage: 10
+--- !u!114 &5653369431715854725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628009960978547587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb36a94b964d984f905011b090570cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistanceFromCamera: 10
+  maxInteractableDistance: 3
 --- !u!1 &6628009961056117613
 GameObject:
   m_ObjectHideFlags: 0
