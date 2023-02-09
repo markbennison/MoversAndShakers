@@ -23,10 +23,9 @@ public class PlayerLocomotion : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
         characterController = GetComponent<CharacterController>();
         SetCurrentCamera();
-    }
+	}
 
     void Update()
     {
@@ -35,7 +34,7 @@ public class PlayerLocomotion : MonoBehaviour
         PerspectiveCheck();
     }
 
-    void SetCurrentCamera()
+	void SetCurrentCamera()
     {
         SwitchPerspective switchPerspective = GetComponent<SwitchPerspective>();
         if (switchPerspective.GetPerspective() == SwitchPerspective.Perspective.First)
@@ -91,8 +90,8 @@ public class PlayerLocomotion : MonoBehaviour
 
     void RotateAndLook()
     {
-        rotateX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        rotateY -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        rotateX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        rotateY -= Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         rotateY = Mathf.Clamp(rotateY, lookUpClamp, lookDownClamp);
         transform.Rotate(0f, rotateX, 0f);
