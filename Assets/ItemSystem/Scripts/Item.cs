@@ -2,62 +2,84 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public GameObject itemPrefab;
-    public Sprite icon;
+	[SerializeField]
+	GameObject itemPrefab;
+	[SerializeField]
+	Sprite icon;
 
-    public string itemName;
-    [TextArea(4, 16)]
-    public string description;
+	[SerializeField]
+	string itemName;
+	[SerializeField]
+	[TextArea(4, 16)]
+	string description;
 
-    public float weight = 0;
-    public int quantity = 1;
-    public int maxStackableQuantity = 1; // for bundles of items, such as arrows or coins
+	[SerializeField]
+	float weight = 0;
+	[SerializeField]
+	int quantity = 1;
+	[SerializeField]
+	int maxStackableQuantity = 1; // for bundles of items, such as arrows or coins
 
-    public bool isStorable = false; // if false, item will be used when picked up
-    public bool isConsumable = true; // if true, item will be destroyed (or quantity reduced) when used
+	[SerializeField]
+	bool isStorable = false; // if false, item will be used on pickup
+	[SerializeField]
+	bool isConsumable = true; // if true, item will be destroyed (or quantity reduced) when used
 
-    void Start()
-    {
+	[SerializeField]
+	bool isPickupOnCollision = false;
 
-    }
+	private void Start()
+	{
+		if (isPickupOnCollision)
+		{
+			gameObject.GetComponent<Collider>().isTrigger = true;
+		}
+	}
 
-    void Update()
-    {
+	private void OnTriggerEnter(Collider collider)
+	{
+		if (isPickupOnCollision)
+		{
+			if (collider.tag == "Player")
+			{
+				Interact();
+			}
+		}
+	}
 
-    }
+	public void Interact()
+	{
+		Debug.Log("Picked up " + transform.name);
 
-    public void Interact()
-    {
-        Debug.Log("Picked up " + transform.name);
+		if (isStorable)
+		{
+			Store();
+		}
+		else
+		{
+			Use();
+		}
+	}
 
-        if (isStorable)
-        {
-            Store();
-        }
-        else
-        {
-            Use();
-        }
-    }
+	void Store()
+	{
+		Debug.Log("Storing " + transform.name);
 
-    void Store()
-    {
-        Debug.Log("Storing " + transform.name);
+		// TODO Inventory system
 
-        // ToDo
+		Destroy(gameObject);
+	}
 
-        Destroy(gameObject);
-    }
-
-    void Use()
-    {
-        if (isConsumable)
-        {
-            quantity--;
-            if (quantity <= 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-    }
+	void Use()
+	{
+		Debug.Log("Using " + transform.name);
+		if (isConsumable)
+		{
+			quantity--;
+			if (quantity <= 0)
+			{
+				Destroy(gameObject);
+			}
+		}
+	}
 }
