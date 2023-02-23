@@ -25,6 +25,7 @@ public class HealthManager : MonoBehaviour
         if (hitPoints <= 0)
         {
             Debug.Log("TODO: GAME OVER - YOU DIED");
+            OnDeath();
         }
     }
 
@@ -39,5 +40,10 @@ public class HealthManager : MonoBehaviour
     float NormalisedHitPoint()
     {
 		return hitPoints / maxHitPoints;
+    }
+
+    void OnDeath()
+	{
+        GameManager.Instance.GameOver();
     }
 }
