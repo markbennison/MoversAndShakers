@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -660,6 +660,7 @@ GameObject:
   - component: {fileID: 1040499603}
   - component: {fileID: 1040499604}
   - component: {fileID: 1040499605}
+  - component: {fileID: 1040499606}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -710,6 +711,18 @@ MonoBehaviour:
   timeValue: {fileID: 158289823}
   gameOverPanel: {fileID: 2061483889}
   endScoreValue: {fileID: 529177239}
+--- !u!114 &1040499606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040499602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24557e0747c0dbc4a87846dfb1f4d09f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1085975705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1500,6 +1513,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 512399328, guid: 397abeb5a572c2b47b7f78718e253fdb, type: 3}
+      propertyPath: m_Name
+      value: Reticle
+      objectReference: {fileID: 0}
     - target: {fileID: 4129704447462378618, guid: 397abeb5a572c2b47b7f78718e253fdb, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1596,6 +1613,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6291755657459061432, guid: 397abeb5a572c2b47b7f78718e253fdb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 397abeb5a572c2b47b7f78718e253fdb, type: 3}
@@ -1662,6 +1683,10 @@ PrefabInstance:
     - target: {fileID: 4912272800134548554, guid: bae46808036130449aedb5f82ec2bd25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912272800134548555, guid: bae46808036130449aedb5f82ec2bd25, type: 3}
+      propertyPath: rawDamage
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4912272800134548555, guid: bae46808036130449aedb5f82ec2bd25, type: 3}
       propertyPath: playerTransform
