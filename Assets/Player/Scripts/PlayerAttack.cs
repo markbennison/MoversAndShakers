@@ -12,7 +12,10 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        FireWeapon();
+        if (!MenuControls.IsGamePaused)
+        {
+            FireWeapon();
+        }
     }
 
     void FireWeapon()

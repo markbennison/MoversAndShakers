@@ -33,9 +33,12 @@ public class PlayerLocomotion : MonoBehaviour
 
     void Update()
     {
-        Locomotion();
-        RotateAndLook();
-        PerspectiveCheck();
+        if (!MenuControls.IsGamePaused)
+        {
+            Locomotion();
+            RotateAndLook();
+            PerspectiveCheck();
+        }
     }
 
 	void SetCurrentCamera()

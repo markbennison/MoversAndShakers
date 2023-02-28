@@ -8,7 +8,10 @@ public class MenuControls : MonoBehaviour
     [SerializeField] string playScene = "PlayerSandboxScene";
 	[SerializeField] string mainMenuScene = "StartScene";
 
-	[Tooltip("Drag in an options menu panel, if one exists")]
+    [Tooltip("Drag in an options menu panel, if one exists")]
+    [SerializeField] GameObject highScorePanel;
+
+    [Tooltip("Drag in an options menu panel, if one exists")]
 	[SerializeField] GameObject optionsMenuPanel;
 
 	[Tooltip("Drag in an pause menu panel, if one exists")]
@@ -40,7 +43,18 @@ public class MenuControls : MonoBehaviour
 		}
 	}
 
-	public void OptionsMenuClose()
+    public void HighScorePanelClose()
+    {
+        highScorePanel.SetActive(false);
+    }
+
+    public void HighScorePanelOpen()
+    {
+        highScorePanel.GetComponent<HighScoreSystem>().UpdateHighScoreUI();
+        highScorePanel.SetActive(true);
+    }
+
+    public void OptionsMenuClose()
 	{
 		optionsMenuPanel.SetActive(false);
 	}

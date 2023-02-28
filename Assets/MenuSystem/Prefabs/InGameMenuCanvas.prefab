@@ -625,6 +625,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playScene: PlayerSandboxScene
   mainMenuScene: StartScene
+  highScorePanel: {fileID: 0}
   optionsMenuPanel: {fileID: 4129704447651732936}
   pauseMenuPanel: {fileID: 4129704447232322012}
   IsPauseMenuAvailable: 1
