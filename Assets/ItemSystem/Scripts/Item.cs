@@ -52,6 +52,7 @@ public class Item : MonoBehaviour
 	public void Interact()
 	{
 		Debug.Log("Picked up " + transform.name);
+		AudioManager.instance.Play("CoinCollect");
 
 		if (isStorable)
 		{

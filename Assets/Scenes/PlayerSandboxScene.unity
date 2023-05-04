@@ -661,6 +661,7 @@ GameObject:
   - component: {fileID: 1040499604}
   - component: {fileID: 1040499605}
   - component: {fileID: 1040499606}
+  - component: {fileID: 1040499607}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -723,6 +724,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24557e0747c0dbc4a87846dfb1f4d09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highPlayersTMP: []
+  highScoresTMP: []
+--- !u!114 &1040499607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040499602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e66e9fcc2e5e5e46933e188a94a57cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: GunShot1
+    clip: {fileID: 8300000, guid: 391ebaef4ae010549a9aae501bcb62b6, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    spatialBlend: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: GruntFemale
+    clip: {fileID: 8300000, guid: 8c572bb973aac9d4cb413b51767178b4, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    spatialBlend: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: GruntMale
+    clip: {fileID: 8300000, guid: 989588115a425404e9af9820d07961f0, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    spatialBlend: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: CoinCollect
+    clip: {fileID: 8300000, guid: b066329a2152e3b4a871a60fe5d0006c, type: 3}
+    volume: 1
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    spatialBlend: 1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!1001 &1085975705
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,8 +21,9 @@ public class HealthManager : MonoBehaviour
         SetHealthSlider();
 
 		Debug.Log("OUCH: " + hitPoints.ToString());
+		AudioManager.instance.PlayAtPoint("GruntFemale", gameObject);
 
-        if (hitPoints <= 0)
+		if (hitPoints <= 0)
         {
             Debug.Log("TODO: GAME OVER - YOU DIED");
             OnDeath();
